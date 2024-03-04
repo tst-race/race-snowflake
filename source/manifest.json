@@ -1,0 +1,88 @@
+{
+    "plugins": [
+        {
+            "file_path": "SnowflakePluginComms",
+            "plugin_type": "Comms",
+            "file_type": "shared_library",
+            "node_type": "server",
+            "shared_library_path": "libSnowflakePluginComms.so",
+            "channels": ["snowflake"]
+        }
+    ],
+    "channel_properties": {
+        "snowflake": {
+            "bootstrap": false,
+            "channelGid": "snowflake",
+            "connectionType": "CT_DIRECT",
+            "creatorExpected": {
+                "send": {
+                    "bandwidth_bps": 14000000,
+                    "latency_ms": 20000,
+                    "loss": 0.001
+                },
+                "receive": {
+                    "bandwidth_bps": 14000000,
+                    "latency_ms": 20000,
+                    "loss": 0.001
+                }
+            },
+            "description": "A WebRTC and WebSocket based transport",
+            "duration_s": -1,
+            "linkDirection": "LD_LOADER_TO_CREATOR",
+            "loaderExpected": {
+                "send": {
+                    "bandwidth_bps": 14000000,
+                    "latency_ms": 20000,
+                    "loss": 0.001
+                },
+                "receive": {
+                    "bandwidth_bps": 14000000,
+                    "latency_ms": 20000,
+                    "loss": 0.001
+                }
+            },
+            "currentRole": "CR_BOTH",
+            "roles": [
+                {
+                    "roleName": "default",
+                    "mechanicalTags": [],
+                    "behavioralTags": [],
+                    "linkSide": "LS_BOTH"
+                }
+            ],
+            "maxLinks": 65500,
+            "maxLoadersPerCreator": 65500,
+            "maxCreatorsPerLoader": 65500,
+            "creatorsPerLoader": -1,
+            "loadersPerCreator": -1,
+            "mtu": -1,
+            "multiAddressable": false,
+            "period_s": -1,
+            "reliable": false,
+            "isFlushable": false,
+            "sendType": "ST_EPHEM_SYNC",
+            "supported_hints": [],
+            "transmissionType": "TT_UNICAST",
+            "maxSendsPerInterval": -1,
+            "secondsPerInterval": -1,
+            "intervalEndTime": 0,
+            "sendsRemainingInInterval": -1
+        }
+    },
+    "channel_parameters": [
+        {
+            "key": "endPort",
+            "plugin": "SnowflakePluginComms",
+            "required": false,
+            "type": "int",
+            "default": 32999
+        },
+        {
+            "key": "startPort",
+            "plugin": "SnowflakePluginComms",
+            "required": false,
+            "type": "int",
+            "default": 31002
+        }        
+    ] 
+}

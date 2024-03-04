@@ -1,0 +1,25 @@
+version: '3.7'
+
+networks:
+  rib-overlay-network:
+    external: true
+
+services:
+
+  stun:
+    container_name: stun
+    hostname: stun
+    image: instrumentisto/coturn
+    labels:
+      race.rib.deployment-name: ${DEPLOYMENT_NAME}
+    networks:
+    - rib-overlay-network
+    ports:
+    - 3478:3478
+    - 49160-49200:49160-49200/udp
+
+x-logging:
+  driver: json-file
+  options:
+    max-file: '5'
+    max-size: 1m
